@@ -21,5 +21,6 @@ function numIdenticalPairs(nums) {
                 }
         }
     }
+    //return hasil
     return count
 };
