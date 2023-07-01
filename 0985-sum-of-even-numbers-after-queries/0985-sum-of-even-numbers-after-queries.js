@@ -4,19 +4,10 @@
  * @return {number[]}
  */
 var sumEvenAfterQueries = function(nums, queries) {
-    nums
   let res = []
   for (let i = 0; i < queries.length; i++) {
-    const element = queries[i];
-    element
-    let temp = element[0]
-    temp
-    let index = element[1]
-    index
-    let before = nums[index]
-    let sum = before + temp
-    nums[index] = sum
-    nums
+    let sum = nums[queries[i][1]] + queries[i][0]
+    nums[queries[i][1]] = sum
     let even = nums.filter((element) => {
       return element % 2 == 0
     })
@@ -29,6 +20,5 @@ var sumEvenAfterQueries = function(nums, queries) {
       }))
     }
   }
-
   return res
 };
