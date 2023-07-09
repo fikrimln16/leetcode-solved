@@ -1,17 +1,24 @@
 /**
  * @param {number[]} nums
  */
-var NumArray = function (nums) {
-  this.arr = nums
+var NumArray = function(nums) {
+  this.prefixSum = nums.slice();
+  //rumus prefixSum
+  for (let i = 1; i < this.prefixSum.length; i++) {
+      this.prefixSum[i] = this.prefixSum[i - 1] + nums[i];
+  }
 };
 
-/**
- * @param {number} left
- * @param {number} right
- * @return {number}
- */
-NumArray.prototype.sumRange = function (left, right) {
-  return this.arr.slice(left, right+1).reduce((a,b) => a + b)
+/** 
+* @param {number} left 
+* @param {number} right
+* @return {number}
+*/
+NumArray.prototype.sumRange = function(left, right) {
+  if (left === 0) {
+      return this.prefixSum[right];
+  }
+  return this.prefixSum[right] - this.prefixSum[left - 1];
 };
 
 /** 
