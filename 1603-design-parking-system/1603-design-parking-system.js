@@ -13,26 +13,15 @@ var ParkingSystem = function (big, medium, small) {
  * @param {number} carType
  * @return {boolean}
  */
-ParkingSystem.prototype.addCar = function (carType) {
-  if(carType === 1) {
-    if(this.big === 0){
-      return false
-    }
-    this.big--
-    return true
-  }
-  if(carType === 2) {
-    if(this.medium === 0){
-      return false
-    }
-    this.medium--
-    return true
-  }
-  if(carType === 3) {
-    if(this.small === 0){
-      return false
-    }
-    this.small--
-    return true
+ParkingSystem.prototype.addCar = function(carType) {
+  switch (carType) {
+      case 1:
+          return --this.big >= 0;
+      case 2:
+          return --this.medium >= 0;
+      case 3:
+          return --this.small >= 0;
+      default:
+          break;
   }
 };
