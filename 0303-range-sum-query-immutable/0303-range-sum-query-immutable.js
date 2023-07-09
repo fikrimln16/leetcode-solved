@@ -2,7 +2,7 @@
  * @param {number[]} nums
  */
 var NumArray = function (nums) {
-  this.arr = [...nums]
+  this.arr = nums
 };
 
 /**
