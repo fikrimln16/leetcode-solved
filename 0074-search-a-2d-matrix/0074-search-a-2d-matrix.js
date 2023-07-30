@@ -1,12 +1,9 @@
-/**
- * @param {number[][]} matrix
- * @param {number} target
- * @return {boolean}
- */
 var findRow = function(matrix, target) {
   let top = 0;
   let bottom = matrix.length - 1;
-  let indexRow = -1; // Inisialisasi dengan nilai -1 untuk menandakan bahwa elemen tidak ditemukan
+  
+  // Inisialisasi dengan nilai -1 untuk menandakan bahwa elemen tidak ditemukan
+  let indexRow = -1; 
 
   while (top <= bottom) {
     indexRow = Math.floor((top + bottom) / 2);
@@ -40,16 +37,16 @@ var findColumn = function(matrix, row, target) {
     }
   }
 
-  return false; // Elemen tidak ditemukan dalam baris yang ditentukan
+  // Elemen tidak ditemukan dalam baris yang ditentukan
+  return false; 
 };
 
 
 var searchMatrix = function(matrix, target) {
-  let row = findRow(matrix, target);
-  if (row === -1) {
-    return false; // Elemen tidak ditemukan dalam matriks, langsung kembalikan -1
+  if (findRow(matrix, target) === -1) {
+    // Elemen tidak ditemukan dalam matriks, langsung kembalikan -1
+    return false; 
   }
 
-  let col = findColumn(matrix, row, target);
-  return col;
+  return findColumn(matrix, findRow(matrix, target), target);
 };
