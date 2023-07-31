@@ -37,7 +37,7 @@ var isValid = function(s) {
       if (stack.isEmpty() || map[stack.peek()] !== c) {
         stack.push(c);
       } else {
-        stack.pop();
+        stack.pop(); 
       }
     }
   });
@@ -45,3 +45,5 @@ var isValid = function(s) {
   return stack.isEmpty();
 };
 
+
+//
