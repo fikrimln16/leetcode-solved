@@ -20,24 +20,28 @@ class Stack {
   }
 }
 
-var isValid = function (s) {
-  if(s.length % 2 !== 0) return false
+var isValid = function(s) {
+  if (s.length % 2 !== 0) return false;
 
   const stack = new Stack();
+  const map = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+  };
 
   s.split("").forEach((c) => {
-    if(c === "(" || c === "{" || c === "["){
-      stack.push(c)
-    } else if(c === ")" && !stack.isEmpty() && stack.peek() === "("){
-      stack.pop()
-    } else if(c === "}" && !stack.isEmpty() && stack.peek() === "{"){
-      stack.pop()
-    } else if(c === "]" && !stack.isEmpty() && stack.peek() === "["){
-      stack.pop()
-    } else{
-      stack.push(c)
+    if (map[c]) {
+      stack.push(c);
+    } else {
+      if (stack.isEmpty() || map[stack.peek()] !== c) {
+        stack.push(c);
+      } else {
+        stack.pop();
+      }
     }
   });
 
   return stack.isEmpty();
 };
+
