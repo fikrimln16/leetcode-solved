@@ -31,7 +31,6 @@ const simplifyPath = function (path) {
   const stack = new Stack();
 
   let split = path.split('/')
-  split
 
   for(const arr of split){
     if(arr === "" || arr === ".") continue
